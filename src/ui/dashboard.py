@@ -1,6 +1,7 @@
 import streamlit as st
 
 from .status_bar import render_status_bar
+from .content_feed import render_content_feed
 
 SECTIONS = ["Goals", "Results", "Settings"]
 
@@ -16,6 +17,7 @@ def render_dashboard() -> None:
     section = render_sidebar()
     render_status_bar()
     if section == "Goals":
+        render_content_feed()
         st.write("Goals View")
     elif section == "Results":
         st.write("Results View")

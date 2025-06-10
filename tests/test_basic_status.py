@@ -15,6 +15,7 @@ def _stub_st(captured: dict) -> ModuleType:
     st.sidebar = SimpleNamespace(
         title=lambda text: captured.setdefault("title", text),
         radio=lambda label, opts: captured.setdefault("options", opts) or opts[0],
+        selectbox=lambda label, opts: opts[0],
     )
     st.set_page_config = lambda **k: None
     st.write = lambda *a, **k: captured.setdefault("writes", []).append(
