@@ -33,17 +33,17 @@ Max 3 tasks; anything larger ⇒ refuse & ask to split next sprint.
 
 ## 1 · Sprint Goal & Why It Matters (≤ 40 words)
 
-**Goal**: Build interactive content feed with filtering and mock data integration
+**Goal**: Build interactive content feed with filtering and mock data integration - DEMO-READY deliverable
 
-**Why now**: Leverages Sprint 5 foundation success to advance toward world-class dashboard with content management capabilities.
+**Why now**: Leverages Sprint 5 foundation success to create tangible, demo-able dashboard that showcases world-class content intelligence capabilities.
 
 ## 2 · Tasks ("Rule of Three")
 
 | # | Task Name (imperative) | Acceptance Criteria (autotested) |
 |---|------------------------|-----------------------------------|
-| 1 | Create content feed component with mock data | Content feed displays list of content cards with sample data; `pytest -k test_content_feed` green |
-| 2 | Add basic filtering controls for content | Filter controls for status, source, date range affect displayed content |
-| 3 | Integrate content feed into Goals section | Goals section shows content feed instead of placeholder text |
+| 1 | Create content feed component with rich mock data | Content feed displays 10+ realistic content cards with titles, sources, timestamps; `pytest -k test_content_feed` green |
+| 2 | Add interactive filtering controls | Filter dropdowns for status/source work immediately, showing filtered results in real-time |
+| 3 | Create compelling demo dashboard | Goals section shows polished content feed ready for stakeholder demonstration |
 
 ## 3 · Interfaces Changed / Added
 (append only; one row per file or endpoint)
