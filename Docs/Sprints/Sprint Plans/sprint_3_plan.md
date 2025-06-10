@@ -1,16 +1,16 @@
 ---
 number:          3
-title:           "Goal Management Interface"
-goal:            "Add CRUD operations for user goals with persistent storage"
+title:           "Real-time Agent Dashboard Foundation"
+goal:            "Implement real-time agent status indicators and basic content feed structure"
 timebox_minutes: 60          # wall-clock limit Codex may spend
 loc_budget:      120         # net new/changed lines allowed
 coverage_min:    85          # pytest --cov fail-under
-test_pattern:    "test_goal_management"   # pytest -k filter for this sprint
+test_pattern:    "test_realtime_foundation"   # pytest -k filter for this sprint
 template_version: 2.0 (2025-06-08)
 require_golden_path: false
 ---
 
-# Sprint 3 · Goal Management Interface
+# Sprint 3 · Real-time Agent Dashboard Foundation
 
 ## 0 · Roles & Prime Rules
 
@@ -33,27 +33,27 @@ Max 3 tasks; anything larger ⇒ refuse & ask to split next sprint.
 
 ## 1 · Sprint Goal & Why It Matters (≤ 40 words)
 
-**Goal**: Add CRUD operations for user goals with persistent storage
+**Goal**: Implement real-time agent status indicators and basic content feed structure
 
-**Why now**: Goals are core to SpiceflowNavigator MVP - users need to create, view, edit, and track their objectives before strategy analysis can begin.
+**Why now**: Establishes foundation for world-class content intelligence dashboard with live agent communication - core to SpiceflowNavigator's 4-Agent Architecture vision.
 
 ## 2 · Tasks ("Rule of Three")
 
 | # | Task Name (imperative) | Acceptance Criteria (autotested) |
 |---|------------------------|-----------------------------------|
-| 1 | Create goal data model and storage | Goal class with validation; JSON persistence; `pytest -k test_goal_management` green |
-| 2 | Build goal CRUD interface in Goals section | Add/Edit/Delete goal forms in Goals view with input validation |
-| 3 | Integrate goal list display and management | Goals view shows all goals with status indicators and action buttons |
+| 1 | Create real-time status bar with agent indicators | Status bar shows Navigator-Ingest/Strategy/Pipeline status; `pytest -k test_realtime_foundation` green |
+| 2 | Build basic content feed structure | Content feed displays placeholder cards with status indicators and real-time updates |
+| 3 | Implement WebSocket connection foundation | WebSocket client connects to mock agent events; status updates trigger UI changes |
 
 ## 3 · Interfaces Changed / Added
 (append only; one row per file or endpoint)
 
 | File / API | Brief Change | Inputs → Outputs |
 |------------|--------------|------------------|
-| `src/models/goal.py` | New goal data model | Goal data → Validated Goal object |
-| `src/ui/goals.py` | Goals management UI | User inputs → Goal CRUD operations |
-| `src/ui/dashboard.py` | Updated Goals section | Navigation → Goals management interface |
-| `data/goals.json` | Goal persistence file | Goals list → JSON storage |
+| `src/ui/status_bar.py` | Real-time status indicators | Agent status data → Status badge UI |
+| `src/ui/content_feed.py` | Content feed with live updates | Content items → Interactive feed cards |
+| `src/websocket/client.py` | WebSocket connection handler | Agent events → UI state updates |
+| `src/ui/dashboard.py` | Updated with status bar integration | Navigation → Dashboard with live status |
 
 ## 4 · Success Metrics (CI-Enforced)
 
@@ -67,7 +67,7 @@ Max 3 tasks; anything larger ⇒ refuse & ask to split next sprint.
 ## 5 · Codex Workflow (MUST follow)
 
 1. Think privately (outline in comments)
-2. Add failing test matching `test_goal_management`
+2. Add failing test matching `test_realtime_foundation`
 3. Implement code to pass test within `loc_budget`
 4. Run all CI checks locally
 5. Self-Review Checklist (below)
