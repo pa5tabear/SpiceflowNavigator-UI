@@ -17,6 +17,7 @@ def _create_stub_streamlit(captured: dict) -> ModuleType:
     st.sidebar = SimpleNamespace(
         title=lambda text: captured.setdefault("title", text),
         radio=radio,
+        selectbox=lambda label, opts: opts[0],
     )
     st.set_page_config = lambda **kwargs: None
     st.write = lambda *args, **kwargs: None
