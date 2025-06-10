@@ -1,5 +1,7 @@
 import streamlit as st
 
+from .goals import render_goals
+
 SECTIONS = ["Goals", "Results", "Settings"]
 
 
@@ -13,7 +15,7 @@ def render_dashboard() -> None:
     """Render the dashboard based on selected navigation section."""
     section = render_sidebar()
     if section == "Goals":
-        st.write("Goals View")
+        render_goals()
     elif section == "Results":
         st.write("Results View")
     elif section == "Settings":

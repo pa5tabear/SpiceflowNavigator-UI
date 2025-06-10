@@ -20,6 +20,13 @@ def _create_stub_streamlit(captured: dict) -> ModuleType:
     )
     st.set_page_config = lambda **kwargs: None
     st.write = lambda *args, **kwargs: None
+    st.columns = lambda n: [
+        SimpleNamespace(write=lambda *a, **k: None, button=lambda *a, **k: False)
+        for _ in range(n)
+    ]
+    st.text_input = st.text_area = lambda *a, **k: ""
+    st.button = lambda *a, **k: False
+    st.experimental_rerun = lambda: None
     return st
 
 
@@ -32,7 +39,7 @@ captured_import: dict[str, object] = {}
 sys.modules.setdefault("streamlit", _create_stub_streamlit(captured_import))
 
 import app
-from src.ui import dashboard
+from src.ui import dashboard, goals
 
 
 def _build_dummy_streamlit(captured: dict) -> ModuleType:
@@ -77,6 +84,7 @@ def test_render_dashboard_sections(monkeypatch, section: str, expected: str):
     dummy_st.sidebar.radio = lambda label, options: section
     dummy_st.write = lambda msg: outputs.append(msg)
     monkeypatch.setattr(dashboard, "st", dummy_st)
+    monkeypatch.setattr(goals, "st", dummy_st)
 
     dashboard.render_dashboard()
 
